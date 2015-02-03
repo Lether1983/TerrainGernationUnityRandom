@@ -12,5 +12,8 @@ public class TerrainControlScript : MonoBehaviour
     public int Width;
 
     
-        
+    public void GenerateTerrain()
+    {
+
+    }
 }

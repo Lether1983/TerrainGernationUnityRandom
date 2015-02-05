@@ -25,47 +25,49 @@ public class PerlinNoise : MonoBehaviour
         }
     }
 
-    public float Noise2D(int X, int Y)
+    public double Noise2D(int X, int Y)
     {
         Vector2 point = new Vector2((float)X / gridCellSize, (float)Y / gridCellSize);
         
-        float x0 = X / gridCellSize;
-        float y0 = Y / gridCellSize;
-        float x1 = X + 1;
-        float y1 = Y + 1;
+        double x0 = X / gridCellSize;
+        double y0 = Y / gridCellSize;
+        double x1 = X + 1;
+        double y1 = Y + 1;
 
-        Vector2 GridCornerBottomLeft = new Vector2(x0, y0);
-        Vector2 GridCornerBottomRight = new Vector2(x1, x0);
-        Vector2 GridCornerTopRight = new Vector2(x1, y1);
-        Vector2 GridCornerTopLeft = new Vector2(x0, y1);
+        Vector2 GridCornerBottomLeft = new Vector2((float)x0,(float)y0);
+        Vector2 GridCornerBottomRight = new Vector2((float)x1,(float) x0);
+        Vector2 GridCornerTopRight = new Vector2((float)x1,(float) y1);
+        Vector2 GridCornerTopLeft = new Vector2((float)x0,(float) y1);
 
         Vector2 FromGridCornerBottomLeftToThePoint = point - GridCornerBottomLeft;
         Vector2 FromGridCornerBottomRightToThePoint = point - GridCornerBottomRight;
         Vector2 FromGridCornerTopRightToThePoint = point - GridCornerTopRight;
         Vector2 FromGridCornerTopLeftToThePoint = point - GridCornerTopLeft;
 
-        float TopLeftCorner = Vector2.Dot(GridCornerTopLeft, FromGridCornerTopLeftToThePoint);
-        float TopRightCorner = Vector2.Dot(GridCornerTopRight, FromGridCornerTopRightToThePoint);
-        float BottomRightCorner = Vector2.Dot(GridCornerBottomRight, FromGridCornerBottomRightToThePoint);
-        float BottomLeftCorner = Vector2.Dot(GridCornerBottomLeft, FromGridCornerBottomLeftToThePoint);
+        double TopLeftCorner = Vector2.Dot(GridCornerTopLeft, FromGridCornerTopLeftToThePoint);
+        double TopRightCorner = Vector2.Dot(GridCornerTopRight, FromGridCornerTopRightToThePoint);
+        double BottomRightCorner = Vector2.Dot(GridCornerBottomRight, FromGridCornerBottomRightToThePoint);
+        double BottomLeftCorner = Vector2.Dot(GridCornerBottomLeft, FromGridCornerBottomLeftToThePoint);
 
 
-        float SmoothValueX = this.Smooth(point.x-x0);
-        float InterpolationAverage = Interpolation(BottomLeftCorner,BottomRightCorner,SmoothValueX);
-        float InterpolationSecondAverage = Interpolation(TopLeftCorner, TopRightCorner, SmoothValueX);
+        double SmoothValueX = this.Smooth(point.x - x0);
+        Debug.Log(SmoothValueX);
+        double InterpolationAverage = Interpolation(BottomLeftCorner,BottomRightCorner,SmoothValueX);
+        double InterpolationSecondAverage = Interpolation(TopLeftCorner, TopRightCorner, SmoothValueX);
 
-        float SmoothValueY = this.Smooth(point.y - y0);
-        float InterpolationAverageY = Interpolation(InterpolationAverage, InterpolationSecondAverage, SmoothValueY);
+        double SmoothValueY = this.Smooth(point.y - y0);
+        double InterpolationAverageY = Interpolation(InterpolationAverage, InterpolationSecondAverage, SmoothValueY);
 
         return InterpolationAverageY;
+        Debug.Log(InterpolationAverageY);
     }
 
-    public float Smooth(float point)
+    public double Smooth(double point)
     {
-        return (float)(3 * Math.Pow(point, 2) - 2 * Math.Pow(point, 3));
+        return (3 * Math.Pow(point, 2) - 2 * Math.Pow(point, 3));
     }
 
-    public float Interpolation(float average ,float secondAverage ,float maximumOne )
+    public double Interpolation(double average ,double secondAverage ,double maximumOne )
     {
         return secondAverage * maximumOne + average * (1 - maximumOne);
     }

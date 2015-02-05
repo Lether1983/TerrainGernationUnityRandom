@@ -8,9 +8,9 @@ public class PerlinNoise : MonoBehaviour
 
     private int gridCellSize;
 
-    public PerlinNoise(int bitMapSize, int gridSize)
+    public PerlinNoise(int ArraySize, int gridSize)
     {
-        this.gridCellSize = bitMapSize / gridSize;
+        this.gridCellSize = ArraySize / gridSize;
 
         System.Random random = new System.Random();
 

@@ -18,7 +18,7 @@ public class SciptEditorView : Editor
 
         if(GUILayout.Button("Generate Terrain"))
         {
-
+            terrainControlScript.GenerateTerrain();
         }
     }
 }

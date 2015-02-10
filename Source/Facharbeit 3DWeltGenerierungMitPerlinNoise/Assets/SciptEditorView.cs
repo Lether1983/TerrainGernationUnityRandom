@@ -18,7 +18,10 @@ public class SciptEditorView : Editor
 
         if(GUILayout.Button("Generate Terrain"))
         {
-            terrainControlScript.GenerateTerrain();
+            if (terrainControlScript.algorithmen == TerrainControlScript.Algorithmen.PerlinNoise)
+            {
+                terrainControlScript.GenerateTerrainPerlinNoise();
+            }
         }
     }
 }

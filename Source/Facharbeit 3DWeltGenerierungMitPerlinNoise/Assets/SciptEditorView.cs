@@ -13,6 +13,7 @@ public class SciptEditorView : Editor
         terrainControlScript.Width = EditorGUILayout.IntField("Width", terrainControlScript.Width);
         terrainControlScript.Lenght = EditorGUILayout.IntField("Lenght", terrainControlScript.Lenght);
         terrainControlScript.MaxHeight = EditorGUILayout.IntField("Max Height", terrainControlScript.MaxHeight);
+        
 
         EditorGUILayout.EnumPopup("Algorithmen",terrainControlScript.algorithmen);
 

@@ -10,6 +10,7 @@ public class TerrainControlScript : MonoBehaviour
     public int MaxHeight;
     public int Lenght;
     public int Width;
+    public int HightmapResolution;
     PerlinNoise Noise;
     private float divRange;
 
@@ -37,24 +38,22 @@ public class TerrainControlScript : MonoBehaviour
     {
         TerrainData tdata = this.gameObject.GetComponent<Terrain>().terrainData;
         tdata.size = new Vector3(Width, MaxHeight, Lenght);
-        tdata.heightmapResolution = 2049;
-        Noise = new PerlinNoise(tdata.heightmapResolution, 10);
-        float[,] heigh = new float[tdata.heightmapWidth, tdata.heightmapHeight];
-        float xLength = tdata.size.x / tdata.size.x * 2049;
-        float zLength = tdata.size.z / tdata.size.z * 2049;
+        //tdata.heightmapResolution = HightmapResolution;
+        Noise = new PerlinNoise(tdata.heightmapResolution,33);
+        float[,] height = new float[tdata.heightmapResolution, tdata.heightmapResolution];
 
-        for (int i = 0; i < xLength; i++)
+        for (int i = 0; i < tdata.heightmapResolution; i++)
         {
-            for (int j = 0; j < zLength; j++)
+            for (int j = 0; j < tdata.heightmapResolution; j++)
             {
-                double Penis = Noise.Noise2D(i, j);
+                float Penis = Noise.NoiseFunction(tdata.heightmapResolution);
 
-                double transformedValue = (Penis + 1) / 2;
-
-                heigh[i, j] = (float)transformedValue;
+                height[i, j] = Penis;
+                //Debug.Log(height[i, j]);
             }
         }
 
-        tdata.SetHeights(0, 0, heigh);
+        
+        tdata.SetHeights(0, 0, height);
     }
 }

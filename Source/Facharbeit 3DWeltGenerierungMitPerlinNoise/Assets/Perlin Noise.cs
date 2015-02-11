@@ -23,17 +23,19 @@ public class PerlinNoise
         }
     }
 
-    public float Noise2D(int X, int Y)
+    public float NoiseFunction(int size)
     {
-        Vector2 point = new Vector2((float)X / gridCellSize, (float)Y / gridCellSize);
+        Vector2 point = new Vector2(UnityEngine.Random.Range(0, size), UnityEngine.Random.Range(0, size));
+        int X = (int)point.x;
+        int Y = (int)point.y;
         
-       float x0 = X / gridCellSize;
-       float y0 = Y / gridCellSize;
-       float x1 = x0 + 1;
-       float y1 = y0 + 1;
+        float x0 = X - (X % gridCellSize);
+        float y0 = Y - (Y % gridCellSize);
+        float x1 = x0 + gridCellSize;
+        float y1 = y0 + gridCellSize;
 
         Vector2 GridCornerBottomLeft = this.directionsVectors[(int)x0, (int)y0];
-        Vector2 GridCornerBottomRight = this.directionsVectors[(int)x1,(int)x0];
+        Vector2 GridCornerBottomRight = this.directionsVectors[(int)x1,(int)y0];
         Vector2 GridCornerTopRight = this.directionsVectors[(int)x1,(int)y1];
         Vector2 GridCornerTopLeft = this.directionsVectors[(int)x0,(int)y1];
 
@@ -47,11 +49,10 @@ public class PerlinNoise
         float BottomRightCorner = Vector2.Dot(GridCornerBottomRight, FromGridCornerBottomRightToThePoint);
         float BottomLeftCorner = Vector2.Dot(GridCornerBottomLeft, FromGridCornerBottomLeftToThePoint);
 
-
         float SmoothValueX = this.Smooth(point.x - x0);
         float InterpolationAverage = Interpolation(BottomLeftCorner,BottomRightCorner,SmoothValueX);
         float InterpolationSecondAverage = Interpolation(TopLeftCorner, TopRightCorner, SmoothValueX);
-        
+
         float SmoothValueY = this.Smooth(point.y - y0);
         float InterpolationAverageY = Interpolation(InterpolationAverage, InterpolationSecondAverage, SmoothValueY);
         
@@ -60,17 +61,18 @@ public class PerlinNoise
 
     public float Smooth(double point)
     {
-        return (float)(3 * Math.Pow(point, 2) - 2 * Math.Pow(point, 3));
+        return (float)((3 * Math.Pow(point, 2)) - (2 * Math.Pow(point, 3)));
     }
 
-    public float Interpolation(float average ,float secondAverage ,float maximumOne )
+    public float Interpolation(float s ,float t ,float maximumOne )
     {
-        return secondAverage * maximumOne + average * (1 - maximumOne);
+        return s + (maximumOne * ( t - s));
     }
 
     public Vector2 RandomiseVector()
     {
-        Vector2 ranVector = new Vector2((float)UnityEngine.Random.Range(0f, 1f) * 2f - 1f, (float)UnityEngine.Random.Range(0f, 1f) * 2f - 1f);
-        return ranVector;
+        Vector2 ranVector = new Vector2(UnityEngine.Random.Range(0f, 1f) * 2f - 1f, UnityEngine.Random.Range(0f, 1f) * 2f - 1f);
+        return ranVector.normalized;
     }
+
 }

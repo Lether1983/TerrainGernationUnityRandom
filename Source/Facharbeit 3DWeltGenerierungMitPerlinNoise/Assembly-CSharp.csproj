@@ -51,6 +51,12 @@
      <Compile Include="Assets\SciptEditorView.cs" />
      <Compile Include="Assets\TerrainControlScript.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{7557707B-3A61-BFDB-07B5-C01745660F75}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{6AF72916-4AF6-A099-41CC-B778E84BA9D2}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.

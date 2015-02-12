@@ -66,7 +66,7 @@ public class PerlinNoise
 
     public float Interpolation(float s ,float t ,float maximumOne )
     {
-        return s + (maximumOne * ( t - s));
+        return s * maximumOne + (t * (1 - maximumOne));
     }
 
     public Vector2 RandomiseVector()

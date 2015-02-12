@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Facharbeit 3DWeltGenerierungMitPerlinNoise.CSharp", "UnityVS.Facharbeit 3DWeltGenerierungMitPerlinNoise.CSharp.csproj", "{C9BCA285-E6E4-CA64-3953-78DF8220E5C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Facharbeit 3DWeltGenerierungMitPerlinNoise.CSharp.Plugins", "UnityVS.Facharbeit 3DWeltGenerierungMitPerlinNoise.CSharp.Plugins.csproj", "{35400718-4E6D-DA0E-8E6A-88313098389D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{C9BCA285-E6E4-CA64-3953-78DF8220E5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9BCA285-E6E4-CA64-3953-78DF8220E5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9BCA285-E6E4-CA64-3953-78DF8220E5C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35400718-4E6D-DA0E-8E6A-88313098389D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35400718-4E6D-DA0E-8E6A-88313098389D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35400718-4E6D-DA0E-8E6A-88313098389D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35400718-4E6D-DA0E-8E6A-88313098389D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

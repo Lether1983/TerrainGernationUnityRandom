@@ -21,8 +21,12 @@ public class SciptEditorView : Editor
         {
             if (terrainControlScript.algorithmen == TerrainControlScript.Algorithmen.PerlinNoise)
             {
-                terrainControlScript.GenerateTerrainPerlinNoise();
+                terrainControlScript.GenerateTerrainPerlinNoise(10);
             }
+            //else if (terrainControlScript.algorithmen == TerrainControlScript.Algorithmen.MathFPerlinNoise)
+            //{
+            //    terrainControlScript.GenerateTerrainMathFPerlinNoise(10);
+            //}
         }
     }
 }

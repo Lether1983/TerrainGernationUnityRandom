@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{B60F51BC-1E30-E771-E950-E4791B77DE66}</ProjectGuid>
+	<ProjectGuid>{6AF72916-4AF6-A099-41CC-B778E84BA9D2}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript-firstpass</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,17 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EditorWork.cs" />
-     <Compile Include="Assets\Perlin Noise.cs" />
-     <Compile Include="Assets\SciptEditorView.cs" />
-     <Compile Include="Assets\TerrainControlScript.cs" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Lethers/Documents/TerrainGernationUnityRandom/Source/Facharbeit 3DWeltGenerierungMitPerlinNoise/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{7557707B-3A61-BFDB-07B5-C01745660F75}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\PlatformInputController.js" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

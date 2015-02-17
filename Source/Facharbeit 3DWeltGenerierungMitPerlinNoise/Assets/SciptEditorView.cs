@@ -13,20 +13,16 @@ public class SciptEditorView : Editor
         terrainControlScript.Width = EditorGUILayout.IntField("Width", terrainControlScript.Width);
         terrainControlScript.Lenght = EditorGUILayout.IntField("Lenght", terrainControlScript.Lenght);
         terrainControlScript.MaxHeight = EditorGUILayout.IntField("Max Height", terrainControlScript.MaxHeight);
-        
 
-        EditorGUILayout.EnumPopup("Algorithmen",terrainControlScript.algorithmen);
+
+        terrainControlScript.algorithmen = (Algorithmen)EditorGUILayout.EnumPopup("Algorithmen", terrainControlScript.algorithmen);
 
         if(GUILayout.Button("Generate Terrain"))
         {
-            if (terrainControlScript.algorithmen == TerrainControlScript.Algorithmen.PerlinNoise)
+            if (terrainControlScript.algorithmen == Algorithmen.PerlinNoise)
             {
-                terrainControlScript.GenerateTerrainPerlinNoise(10);
+                terrainControlScript.GenerateTerrainPerlinNoise();
             }
-            //else if (terrainControlScript.algorithmen == TerrainControlScript.Algorithmen.MathFPerlinNoise)
-            //{
-            //    terrainControlScript.GenerateTerrainMathFPerlinNoise(10);
-            //}
         }
     }
 }

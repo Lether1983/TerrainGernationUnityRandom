@@ -20,10 +20,13 @@ public class TerrainControlScript : MonoBehaviour
     private const int Stone = 1;
     private const int Grass = 2;
     private const int Water = 3;
+    private const int Resolution = 32;
 
     public void GenerateTerrainPerlinNoise()
     {
         tdata = this.gameObject.GetComponent<Terrain>().terrainData;
+        tdata.alphamapResolution = Resolution;
+        tdata.baseMapResolution = Resolution;
         tdata.size = new Vector3(Width, MaxHeight, Lenght);
         Noise = new PerlinNoise(tdata.heightmapResolution, tdata.heightmapResolution);
         float[,] height = new float[tdata.heightmapResolution, tdata.heightmapResolution];
